@@ -1,0 +1,333 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="351dp"
+            android:height="351dp"
+            android:viewportWidth="351"
+            android:viewportHeight="351">
+            <path
+                android:name="path_2"
+                android:pathData="M 0.501 119.34 Q 25.974 79.438 40.616 87.812 C 55.257 96.186 64.412 123.803 78.724 113.323 C 123.29 80.696 122.151 61.504 153.939 102.803 C 173.189 127.814 202.683 44.79 231.159 41.629 C 257.595 38.695 268.037 50.853 290.327 102.291 Q 308.257 143.668 350.499 102.291 L 350.499 351 L 0.501 351 L 0.501 119.34 Z"
+                android:fillColor="#f7d0d0"
+                android:strokeWidth="1"/>
+            <path
+                android:name="dark1"
+                android:pathData="M 0 130.371 Q 30.258 141.135 50.431 117.334 C 70.603 93.533 93.532 83.571 113.974 86.246 C 153.48 91.414 165.077 127.43 201.724 92.263 C 238.371 57.096 245.027 127.029 278.379 105.3 C 311.731 83.571 341.855 123.017 351 117.334 L 351 351 L 0 351 L 0 130.371 Z"
+                android:fillColor="#f08f8f"
+                android:fillAlpha="0.8"
+                android:strokeWidth="1"/>
+            <path
+                android:name="dim1"
+                android:pathData="M 0 99.617 Q 55.795 130.348 87.249 128.343 C 118.702 126.337 141.312 53.22 166.474 85.22 C 191.637 117.22 214.429 144.024 232.663 128.343 C 250.897 112.662 282.031 88.183 314.897 128.343 Q 347.764 168.503 351 133.357 L 351 351 L 0 351 L 0 99.617 Z"
+                android:fillColor="#f8d0d0"
+                android:fillAlpha="0.2"
+                android:strokeWidth="1"/>
+        </vector>
+    </aapt:attr>
+    <target android:name="path_2">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 25.9 79.212 40.5 87.562 C 55.1 95.912 64.228 123.45 78.5 113 C 122.939 80.466 121.803 61.329 153.5 102.51 C 172.696 127.45 202.106 44.662 230.5 41.51 C 256.861 38.585 267.273 50.708 289.5 102 Q 307.379 143.259 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 21.9 99.65 36.5 108 C 51.1 116.35 80.9 124.65 91.5 113 C 102.1 101.35 123.9 58.4 156.5 108 C 189.1 157.6 210.9 112.4 219.5 108 C 228.1 103.6 240.9 69.9 276.5 113 Q 312.1 156.1 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="250"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 21.9 99.65 36.5 108 C 51.1 116.35 80.9 124.65 91.5 113 C 102.1 101.35 123.9 58.4 156.5 108 C 189.1 157.6 210.9 112.4 219.5 108 C 228.1 103.6 240.9 69.9 276.5 113 Q 312.1 156.1 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 21.9 140.272 36.5 148.622 C 51.1 156.972 82.9 88.272 93.5 76.622 C 104.1 64.972 114.9 81.022 147.5 130.622 C 180.1 180.222 210.9 93.022 219.5 88.622 C 228.1 84.222 243.9 69.522 279.5 112.622 Q 315.1 155.722 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="500"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 21.9 140.272 36.5 148.622 C 51.1 156.972 82.9 88.272 93.5 76.622 C 104.1 64.972 114.9 81.022 147.5 130.622 C 180.1 180.222 210.9 93.022 219.5 88.622 C 228.1 84.222 243.9 69.522 279.5 112.622 Q 315.1 155.722 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 25.9 79.212 40.5 87.562 C 55.1 95.912 64.228 123.45 78.5 113 C 122.939 80.466 121.803 61.329 153.5 102.51 C 172.696 127.45 202.106 44.662 230.5 41.51 C 256.861 38.585 267.273 50.708 289.5 102 Q 307.379 143.259 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="750"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 25.9 79.212 40.5 87.562 C 55.1 95.912 64.228 123.45 78.5 113 C 122.939 80.466 121.803 61.329 153.5 102.51 C 172.696 127.45 202.106 44.662 230.5 41.51 C 256.861 38.585 267.273 50.708 289.5 102 Q 307.379 143.259 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 21.9 140.272 36.5 148.622 C 51.1 156.972 82.9 88.272 93.5 76.622 C 104.1 64.972 114.9 81.022 147.5 130.622 C 180.1 180.222 210.9 93.022 219.5 88.622 C 228.1 84.222 243.9 69.522 279.5 112.622 Q 315.1 155.722 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1000"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 21.9 140.272 36.5 148.622 C 51.1 156.972 82.9 88.272 93.5 76.622 C 104.1 64.972 114.9 81.022 147.5 130.622 C 180.1 180.222 210.9 93.022 219.5 88.622 C 228.1 84.222 243.9 69.522 279.5 112.622 Q 315.1 155.722 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 21.9 99.65 36.5 108 C 51.1 116.35 80.9 124.65 91.5 113 C 102.1 101.35 123.9 58.4 156.5 108 C 189.1 157.6 210.9 112.4 219.5 108 C 228.1 103.6 240.9 69.9 276.5 113 Q 312.1 156.1 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1250"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 21.9 99.65 36.5 108 C 51.1 116.35 80.9 124.65 91.5 113 C 102.1 101.35 123.9 58.4 156.5 108 C 189.1 157.6 210.9 112.4 219.5 108 C 228.1 103.6 240.9 69.9 276.5 113 Q 312.1 156.1 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 25.9 79.212 40.5 87.562 C 55.1 95.912 64.228 123.45 78.5 113 C 122.939 80.466 121.803 61.329 153.5 102.51 C 172.696 127.45 202.106 44.662 230.5 41.51 C 256.861 38.585 267.273 50.708 289.5 102 Q 307.379 143.259 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1500"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 25.9 79.212 40.5 87.562 C 55.1 95.912 64.228 123.45 78.5 113 C 122.939 80.466 121.803 61.329 153.5 102.51 C 172.696 127.45 202.106 44.662 230.5 41.51 C 256.861 38.585 267.273 50.708 289.5 102 Q 307.379 143.259 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 21.9 99.65 36.5 108 C 51.1 116.35 80.9 124.65 91.5 113 C 102.1 101.35 123.9 58.4 156.5 108 C 189.1 157.6 210.9 112.4 219.5 108 C 228.1 103.6 240.9 69.9 276.5 113 Q 312.1 156.1 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1750"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 21.9 99.65 36.5 108 C 51.1 116.35 80.9 124.65 91.5 113 C 102.1 101.35 123.9 58.4 156.5 108 C 189.1 157.6 210.9 112.4 219.5 108 C 228.1 103.6 240.9 69.9 276.5 113 Q 312.1 156.1 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 21.9 140.272 36.5 148.622 C 51.1 156.972 82.9 88.272 93.5 76.622 C 104.1 64.972 114.9 81.022 147.5 130.622 C 180.1 180.222 210.9 93.022 219.5 88.622 C 228.1 84.222 243.9 69.522 279.5 112.622 Q 315.1 155.722 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2000"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 21.9 140.272 36.5 148.622 C 51.1 156.972 82.9 88.272 93.5 76.622 C 104.1 64.972 114.9 81.022 147.5 130.622 C 180.1 180.222 210.9 93.022 219.5 88.622 C 228.1 84.222 243.9 69.522 279.5 112.622 Q 315.1 155.722 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 25.9 79.212 40.5 87.562 C 55.1 95.912 64.228 123.45 78.5 113 C 122.939 80.466 121.803 61.329 153.5 102.51 C 172.696 127.45 202.106 44.662 230.5 41.51 C 256.861 38.585 267.273 50.708 289.5 102 Q 307.379 143.259 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2250"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 25.9 79.212 40.5 87.562 C 55.1 95.912 64.228 123.45 78.5 113 C 122.939 80.466 121.803 61.329 153.5 102.51 C 172.696 127.45 202.106 44.662 230.5 41.51 C 256.861 38.585 267.273 50.708 289.5 102 Q 307.379 143.259 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 21.9 140.272 36.5 148.622 C 51.1 156.972 82.9 88.272 93.5 76.622 C 104.1 64.972 114.9 81.022 147.5 130.622 C 180.1 180.222 210.9 93.022 219.5 88.622 C 228.1 84.222 243.9 69.522 279.5 112.622 Q 315.1 155.722 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2500"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 21.9 140.272 36.5 148.622 C 51.1 156.972 82.9 88.272 93.5 76.622 C 104.1 64.972 114.9 81.022 147.5 130.622 C 180.1 180.222 210.9 93.022 219.5 88.622 C 228.1 84.222 243.9 69.522 279.5 112.622 Q 315.1 155.722 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 21.9 99.65 36.5 108 C 51.1 116.35 80.9 124.65 91.5 113 C 102.1 101.35 123.9 58.4 156.5 108 C 189.1 157.6 210.9 112.4 219.5 108 C 228.1 103.6 240.9 69.9 276.5 113 Q 312.1 156.1 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2750"
+                    android:duration="250"
+                    android:valueFrom="M 0.5 119 Q 21.9 99.65 36.5 108 C 51.1 116.35 80.9 124.65 91.5 113 C 102.1 101.35 123.9 58.4 156.5 108 C 189.1 157.6 210.9 112.4 219.5 108 C 228.1 103.6 240.9 69.9 276.5 113 Q 312.1 156.1 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueTo="M 0.5 119 Q 25.9 79.212 40.5 87.562 C 55.1 95.912 64.228 123.45 78.5 113 C 122.939 80.466 121.803 61.329 153.5 102.51 C 172.696 127.45 202.106 44.662 230.5 41.51 C 256.861 38.585 267.273 50.708 289.5 102 Q 307.379 143.259 349.5 102 L 349.5 350 L 0.5 350 L 0.5 119 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="dark1">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="250"
+                    android:valueFrom="M 0 130 Q 30.172 140.733 50.287 117 C 70.402 93.267 93.266 83.333 113.649 86 C 153.043 91.154 164.607 127.067 201.149 92 C 237.692 56.933 244.329 126.667 277.586 105 C 310.843 83.333 340.881 122.667 350 117 L 350 350 L 0 350 L 0 130 Z"
+                    android:valueTo="M 0 130 Q 30.172 140.733 50.287 117 C 70.402 93.267 81.6 7.355 114 58.955 C 224.497 234.932 181.458 58.022 218 22.955 C 254.542 -12.112 244.329 126.667 277.586 105 C 310.843 83.333 340.881 122.667 350 117 L 350 350 L 0 350 L 0 130 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="250"
+                    android:duration="250"
+                    android:valueFrom="M 0 130 Q 30.172 140.733 50.287 117 C 70.402 93.267 81.6 7.355 114 58.955 C 224.497 234.932 181.458 58.022 218 22.955 C 254.542 -12.112 244.329 126.667 277.586 105 C 310.843 83.333 340.881 122.667 350 117 L 350 350 L 0 350 L 0 130 Z"
+                    android:valueTo="M 0 62 Q 30.172 140.734 50.287 117 C 70.402 93.267 103.159 28.885 117 44 C 162.424 93.606 164.607 66.067 201.149 31 C 237.692 -4.066 258.173 139.501 277.586 105 C 335.152 2.697 340.881 122.667 350 117 L 350 350 L 0 350 L 0 62 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="500"
+                    android:duration="250"
+                    android:valueFrom="M 0 62 Q 30.172 140.734 50.287 117 C 70.402 93.267 103.159 28.885 117 44 C 162.424 93.606 164.607 66.067 201.149 31 C 237.692 -4.066 258.173 139.501 277.586 105 C 335.152 2.697 340.881 122.667 350 117 L 350 350 L 0 350 L 0 62 Z"
+                    android:valueTo="M 0 130 Q 30.172 140.733 50.287 117 C 70.402 93.267 93.266 83.333 113.649 86 C 153.043 91.154 164.607 127.067 201.149 92 C 237.692 56.933 244.329 126.667 277.586 105 C 310.843 83.333 340.881 122.667 350 117 L 350 350 L 0 350 L 0 130 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="750"
+                    android:duration="250"
+                    android:valueFrom="M 0 130 Q 30.172 140.733 50.287 117 C 70.402 93.267 93.266 83.333 113.649 86 C 153.043 91.154 164.607 127.067 201.149 92 C 237.692 56.933 244.329 126.667 277.586 105 C 310.843 83.333 340.881 122.667 350 117 L 350 350 L 0 350 L 0 130 Z"
+                    android:valueTo="M 0 62 Q 30.172 140.734 50.287 117 C 70.402 93.267 103.159 28.885 117 44 C 162.424 93.606 164.607 66.067 201.149 31 C 237.692 -4.066 258.173 139.501 277.586 105 C 335.152 2.697 340.881 122.667 350 117 L 350 350 L 0 350 L 0 62 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1000"
+                    android:duration="250"
+                    android:valueFrom="M 0 62 Q 30.172 140.734 50.287 117 C 70.402 93.267 103.159 28.885 117 44 C 162.424 93.606 164.607 66.067 201.149 31 C 237.692 -4.066 258.173 139.501 277.586 105 C 335.152 2.697 340.881 122.667 350 117 L 350 350 L 0 350 L 0 62 Z"
+                    android:valueTo="M 0 130 Q 30.172 140.733 50.287 117 C 70.402 93.267 81.6 7.355 114 58.955 C 224.497 234.932 181.458 58.022 218 22.955 C 254.542 -12.112 244.329 126.667 277.586 105 C 310.843 83.333 340.881 122.667 350 117 L 350 350 L 0 350 L 0 130 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1250"
+                    android:duration="250"
+                    android:valueFrom="M 0 130 Q 30.172 140.733 50.287 117 C 70.402 93.267 81.6 7.355 114 58.955 C 224.497 234.932 181.458 58.022 218 22.955 C 254.542 -12.112 244.329 126.667 277.586 105 C 310.843 83.333 340.881 122.667 350 117 L 350 350 L 0 350 L 0 130 Z"
+                    android:valueTo="M 0 130.371 Q 27.965 91.996 48.137 68.194 C 68.31 44.393 95.89 120.678 116.331 123.351 C 155.837 128.52 145.874 117.401 182.52 82.234 C 219.166 47.068 209.78 138.804 291.831 87.249 C 325.538 66.069 341.855 79.94 351 74.258 L 351 351 L 0 351 L 0 130.371 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1500"
+                    android:duration="250"
+                    android:valueFrom="M 0 130.371 Q 27.965 91.996 48.137 68.194 C 68.31 44.393 95.89 120.678 116.331 123.351 C 155.837 128.52 145.874 117.401 182.52 82.234 C 219.166 47.068 209.78 138.804 291.831 87.249 C 325.538 66.069 341.855 79.94 351 74.258 L 351 351 L 0 351 L 0 130.371 Z"
+                    android:valueTo="M 0 77.464 Q 34.113 148.652 54.228 124.919 C 74.343 101.185 96.844 36.252 117.228 38.919 C 156.621 44.072 159.685 82.985 196.228 47.919 C 232.77 12.852 217.409 176.328 299.228 124.919 C 332.839 103.8 342.109 80.212 351.228 74.546 L 351.228 350.5 L 1.228 350.5 L 0 77.464 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1750"
+                    android:duration="250"
+                    android:valueFrom="M 0 77.464 Q 34.113 148.652 54.228 124.919 C 74.343 101.185 96.844 36.252 117.228 38.919 C 156.621 44.072 159.685 82.985 196.228 47.919 C 232.77 12.852 217.409 176.328 299.228 124.919 C 332.839 103.8 342.109 80.212 351.228 74.546 L 351.228 350.5 L 1.228 350.5 L 0 77.464 Z"
+                    android:valueTo="M 0 130.371 Q 27.965 91.996 48.137 68.194 C 68.31 44.393 95.89 120.678 116.331 123.351 C 155.837 128.52 145.874 117.401 182.52 82.234 C 219.166 47.068 209.78 138.804 291.831 87.249 C 325.538 66.069 341.855 79.94 351 74.258 L 351 351 L 0 351 L 0 130.371 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2000"
+                    android:duration="250"
+                    android:valueFrom="M 0 130.371 Q 27.965 91.996 48.137 68.194 C 68.31 44.393 95.89 120.678 116.331 123.351 C 155.837 128.52 145.874 117.401 182.52 82.234 C 219.166 47.068 209.78 138.804 291.831 87.249 C 325.538 66.069 341.855 79.94 351 74.258 L 351 351 L 0 351 L 0 130.371 Z"
+                    android:valueTo="M 0 77.464 Q 34.113 148.652 54.228 124.919 C 74.343 101.185 96.844 36.252 117.228 38.919 C 156.621 44.072 159.685 82.985 196.228 47.919 C 232.77 12.852 217.409 176.328 299.228 124.919 C 332.839 103.8 342.109 80.212 351.228 74.546 L 351.228 350.5 L 1.228 350.5 L 0 77.464 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2250"
+                    android:duration="250"
+                    android:valueFrom="M 0 77.464 Q 34.113 148.652 54.228 124.919 C 74.343 101.185 96.844 36.252 117.228 38.919 C 156.621 44.072 159.685 82.985 196.228 47.919 C 232.77 12.852 217.409 176.328 299.228 124.919 C 332.839 103.8 342.109 80.212 351.228 74.546 L 351.228 350.5 L 1.228 350.5 L 0 77.464 Z"
+                    android:valueTo="M 0 62.177 Q 30.258 141.136 50.431 117.334 C 70.603 93.533 103.454 28.968 117.334 44.126 C 162.888 93.873 165.077 66.256 201.724 31.089 C 238.371 -4.078 258.911 139.9 278.379 105.3 C 336.11 2.705 341.855 123.017 351 117.334 L 351 351 L 0 351 L 0 62.177 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2500"
+                    android:duration="250"
+                    android:valueFrom="M 0 62.177 Q 30.258 141.136 50.431 117.334 C 70.603 93.533 103.454 28.968 117.334 44.126 C 162.888 93.873 165.077 66.256 201.724 31.089 C 238.371 -4.078 258.911 139.9 278.379 105.3 C 336.11 2.705 341.855 123.017 351 117.334 L 351 351 L 0 351 L 0 62.177 Z"
+                    android:valueTo="M 0 130.371 Q 30.258 141.135 50.431 117.334 C 70.603 93.533 81.833 7.376 114.326 59.123 C 225.138 235.603 181.976 58.188 218.623 23.021 C 255.269 -12.147 245.027 127.029 278.379 105.3 C 311.731 83.571 341.855 123.017 351 117.334 L 351 351 L 0 351 L 0 130.371 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2750"
+                    android:duration="250"
+                    android:valueFrom="M 0 130.371 Q 30.258 141.135 50.431 117.334 C 70.603 93.533 81.833 7.376 114.326 59.123 C 225.138 235.603 181.976 58.188 218.623 23.021 C 255.269 -12.147 245.027 127.029 278.379 105.3 C 311.731 83.571 341.855 123.017 351 117.334 L 351 351 L 0 351 L 0 130.371 Z"
+                    android:valueTo="M 0 130 Q 30.172 140.733 50.287 117 C 70.402 93.267 93.266 83.333 113.649 86 C 153.043 91.154 164.607 127.067 201.149 92 C 237.692 56.933 244.329 126.667 277.586 105 C 310.843 83.333 340.881 122.667 350 117 L 350 350 L 0 350 L 0 130 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="dim1">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="250"
+                    android:valueFrom="M 0 99.333 Q 55.636 129.977 87 127.977 C 118.364 125.977 140.909 53.068 166 84.977 C 191.091 116.886 213.818 143.614 232 127.977 C 250.182 112.341 281.227 87.932 314 127.977 Q 346.773 168.023 350 132.977 L 350 350 L 0 350 L 0 99.333 Z"
+                    android:valueTo="M 0 99.333 Q 48.636 141.91 80 139.91 C 111.363 137.91 169.909 67.424 195 99.333 C 220.09 131.242 231.818 148.614 250 132.978 C 268.181 117.341 281.227 20.865 314 60.91 Q 346.772 100.956 350 132.978 L 350 350 L 0 350 L 0 99.333 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="500"
+                    android:duration="250"
+                    android:valueFrom="M 0 66.656 Q 19.636 160.256 51 158.256 C 82.363 156.256 118.6 70.656 151 90.256 C 185.732 111.266 212.818 143.892 231 128.256 C 249.182 112.619 281.227 20.865 314 60.91 Q 346.773 100.956 350 132.978 L 350 350 L 0 350 L 0 66.656 Z"
+                    android:valueTo="M 0 99.333 Q 55.636 129.977 87 127.977 C 118.364 125.977 140.909 53.068 166 84.977 C 191.091 116.886 213.818 143.614 232 127.977 C 250.182 112.341 281.227 87.932 314 127.977 Q 346.773 168.023 350 132.977 L 350 350 L 0 350 L 0 99.333 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="250"
+                    android:duration="250"
+                    android:valueFrom="M 0 99.333 Q 48.636 141.91 80 139.91 C 111.363 137.91 169.909 67.424 195 99.333 C 220.09 131.242 231.818 148.614 250 132.978 C 268.181 117.341 281.227 20.865 314 60.91 Q 346.772 100.956 350 132.978 L 350 350 L 0 350 L 0 99.333 Z"
+                    android:valueTo="M 0 66.656 Q 19.636 160.256 51 158.256 C 82.363 156.256 118.6 70.656 151 90.256 C 185.732 111.266 212.818 143.892 231 128.256 C 249.182 112.619 281.227 20.865 314 60.91 Q 346.773 100.956 350 132.978 L 350 350 L 0 350 L 0 66.656 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="750"
+                    android:duration="250"
+                    android:valueFrom="M 0 99.333 Q 55.636 129.977 87 127.977 C 118.364 125.977 140.909 53.068 166 84.977 C 191.091 116.886 213.818 143.614 232 127.977 C 250.182 112.341 281.227 87.932 314 127.977 Q 346.773 168.023 350 132.977 L 350 350 L 0 350 L 0 99.333 Z"
+                    android:valueTo="M 0 66.656 Q 19.636 160.256 51 158.256 C 82.363 156.256 118.6 70.656 151 90.256 C 185.732 111.266 212.818 143.892 231 128.256 C 249.182 112.619 281.227 20.865 314 60.91 Q 346.773 100.956 350 132.978 L 350 350 L 0 350 L 0 66.656 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1000"
+                    android:duration="250"
+                    android:valueFrom="M 0 66.656 Q 19.636 160.256 51 158.256 C 82.363 156.256 118.6 70.656 151 90.256 C 185.732 111.266 212.818 143.892 231 128.256 C 249.182 112.619 281.227 20.865 314 60.91 Q 346.773 100.956 350 132.978 L 350 350 L 0 350 L 0 66.656 Z"
+                    android:valueTo="M 0 99.333 Q 48.636 141.91 80 139.91 C 111.363 137.91 169.909 67.424 195 99.333 C 220.09 131.242 231.818 148.614 250 132.978 C 268.181 117.341 281.227 20.865 314 60.91 Q 346.772 100.956 350 132.978 L 350 350 L 0 350 L 0 99.333 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1250"
+                    android:duration="250"
+                    android:valueFrom="M 0 99.333 Q 48.636 141.91 80 139.91 C 111.363 137.91 169.909 67.424 195 99.333 C 220.09 131.242 231.818 148.614 250 132.978 C 268.181 117.341 281.227 20.865 314 60.91 Q 346.772 100.956 350 132.978 L 350 350 L 0 350 L 0 99.333 Z"
+                    android:valueTo="M 0 100.486 Q 37.744 100.286 69.197 98.28 C 100.65 96.274 114.927 60.573 147.42 80.229 C 182.251 101.3 195.375 105.938 213.609 90.257 C 231.843 74.576 291.056 60.126 323.923 100.286 Q 356.788 140.445 351 133.357 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2750"
+                    android:duration="250"
+                    android:valueFrom="M 0 100.486 Q 34.736 71.203 66.189 69.197 C 97.642 67.191 129.97 9.85 162.463 29.506 C 197.294 50.577 204.4 48.775 222.634 33.094 C 240.868 17.414 240.913 -10.074 273.78 30.086 Q 306.647 70.245 351 60.573 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueTo="M 0 99.333 Q 55.636 129.977 87 127.977 C 118.364 125.977 140.909 53.068 166 84.977 C 191.091 116.886 213.818 143.614 232 127.977 C 250.182 112.341 281.227 87.932 314 127.977 Q 346.773 168.023 350 132.977 L 350 350 L 0 350 L 0 99.333 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2500"
+                    android:duration="250"
+                    android:valueFrom="M 0 100.486 Q 37.744 100.286 69.197 98.28 C 100.65 96.274 114.927 60.573 147.42 80.229 C 182.251 101.3 195.375 105.938 213.609 90.257 C 231.843 74.576 291.056 60.126 323.923 100.286 Q 356.788 140.445 351 133.357 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueTo="M 0 100.486 Q 34.736 71.203 66.189 69.197 C 97.642 67.191 129.97 9.85 162.463 29.506 C 197.294 50.577 204.4 48.775 222.634 33.094 C 240.868 17.414 240.913 -10.074 273.78 30.086 Q 306.647 70.245 351 60.573 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2250"
+                    android:duration="250"
+                    android:valueFrom="M 0 99.617 Q 48.775 142.315 80.229 140.31 C 111.681 138.304 170.394 67.617 195.557 99.617 C 220.719 131.617 232.48 149.039 250.714 133.358 C 268.947 117.676 282.031 20.925 314.897 61.084 Q 347.763 101.244 351 133.358 L 351 351 L 0 351 L 0 99.617 Z"
+                    android:valueTo="M 0 100.486 Q 37.744 100.286 69.197 98.28 C 100.65 96.274 114.927 60.573 147.42 80.229 C 182.251 101.3 195.375 105.938 213.609 90.257 C 231.843 74.576 291.056 60.126 323.923 100.286 Q 356.788 140.445 351 133.357 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="2000"
+                    android:duration="250"
+                    android:valueFrom="M 0 100.486 Q 37.744 100.286 69.197 98.28 C 100.65 96.274 114.927 60.573 147.42 80.229 C 182.251 101.3 195.375 105.938 213.609 90.257 C 231.843 74.576 291.056 60.126 323.923 100.286 Q 356.788 140.445 351 133.357 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueTo="M 0 99.617 Q 48.775 142.315 80.229 140.31 C 111.681 138.304 170.394 67.617 195.557 99.617 C 220.719 131.617 232.48 149.039 250.714 133.358 C 268.947 117.676 282.031 20.925 314.897 61.084 Q 347.763 101.244 351 133.358 L 351 351 L 0 351 L 0 99.617 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1750"
+                    android:duration="250"
+                    android:valueFrom="M 0 100.486 Q 34.736 71.203 66.189 69.197 C 97.642 67.191 129.97 9.85 162.463 29.506 C 197.294 50.577 204.4 48.775 222.634 33.094 C 240.868 17.414 240.913 -10.074 273.78 30.086 Q 306.647 70.245 351 60.573 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueTo="M 0 100.486 Q 37.744 100.286 69.197 98.28 C 100.65 96.274 114.927 60.573 147.42 80.229 C 182.251 101.3 195.375 105.938 213.609 90.257 C 231.843 74.576 291.056 60.126 323.923 100.286 Q 356.788 140.445 351 133.357 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="1500"
+                    android:duration="250"
+                    android:valueFrom="M 0 100.486 Q 37.744 100.286 69.197 98.28 C 100.65 96.274 114.927 60.573 147.42 80.229 C 182.251 101.3 195.375 105.938 213.609 90.257 C 231.843 74.576 291.056 60.126 323.923 100.286 Q 356.788 140.445 351 133.357 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueTo="M 0 100.486 Q 34.736 71.203 66.189 69.197 C 97.642 67.191 129.97 9.85 162.463 29.506 C 197.294 50.577 204.4 48.775 222.634 33.094 C 240.868 17.414 240.913 -10.074 273.78 30.086 Q 306.647 70.245 351 60.573 L 351 351 L 0 351 L 0 100.486 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>

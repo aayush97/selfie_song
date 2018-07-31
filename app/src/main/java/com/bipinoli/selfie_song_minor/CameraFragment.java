@@ -2,20 +2,25 @@ package com.bipinoli.selfie_song_minor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageButton;
 
 import com.otaliastudios.cameraview.CameraListener;
 import com.otaliastudios.cameraview.CameraOptions;
@@ -28,7 +33,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.ByteBuffer;
+
 
 
 public class CameraFragment extends Fragment{
@@ -38,7 +43,7 @@ public class CameraFragment extends Fragment{
     private static final String TAG = "CameraFragment";
 
     private CameraView mCameraView;
-    private Button mCaptureButton;
+    private ImageButton mCaptureButton;
 
     ImageClassifier mClassifier;
 
@@ -61,6 +66,7 @@ public class CameraFragment extends Fragment{
             e.printStackTrace();
         }
 
+
         mCameraView = (CameraView) v.findViewById(R.id.camera);
         mCameraView.setFacing(Facing.FRONT);
         mCameraView.setGrid(Grid.DRAW_3X3);
@@ -74,7 +80,6 @@ public class CameraFragment extends Fragment{
                     @SuppressLint("WrongThread")
                     @Override
                     public void onBitmapReady(Bitmap bitmap) {
-                        // TODO:
                         Log.e(TAG, "onBitmapReady() called");
 
 
@@ -123,10 +128,13 @@ public class CameraFragment extends Fragment{
         });
 
 
-        mCaptureButton = (Button) v.findViewById(R.id.btn_capture);
+        mCaptureButton = (ImageButton) v.findViewById(R.id.btn_capture);
+        final AnimatedVectorDrawableCompat avd = AnimatedVectorDrawableCompat.create(getContext(), R.drawable.avd_anim_button_camera);
+        mCaptureButton.setImageDrawable(avd);
         mCaptureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                avd.start();
                 mCameraView.captureSnapshot();
             }
         });
