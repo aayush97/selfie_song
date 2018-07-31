@@ -30,7 +30,7 @@ public class InferencedActivity extends AppCompatActivity {
         final AnimatedVectorDrawableCompat avd2 = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_music_visualizer);
         mImageViewMusic.setImageDrawable(avd2);
 
-        // animation on infinite loop
+        // animation on infinite loop (make it repeat baby)
         final Handler mainHandler = new Handler(Looper.getMainLooper());
         avd.registerAnimationCallback(new Animatable2Compat.AnimationCallback() {
             @Override
