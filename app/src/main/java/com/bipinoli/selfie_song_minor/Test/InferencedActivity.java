@@ -25,7 +25,7 @@ public class InferencedActivity extends AppCompatActivity {
         mImageView = (ImageView) findViewById(R.id.imageView_animaton);
         mImageViewMusic = (ImageView) findViewById(R.id.imageView_music_visualizer);
 
-        final AnimatedVectorDrawableCompat avd = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_happy);
+        final AnimatedVectorDrawableCompat avd = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_romantic);
         mImageView.setImageDrawable(avd);
         final AnimatedVectorDrawableCompat avd2 = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_music_visualizer);
         mImageViewMusic.setImageDrawable(avd2);
