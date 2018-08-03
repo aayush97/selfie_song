@@ -16,6 +16,7 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.view.MenuItem;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.bipinoli.selfie_song_minor.R;
@@ -33,6 +35,7 @@ import com.bipinoli.selfie_song_minor.Test.InferencedActivity;
 
 
 public class MusicPlayerActivity extends AppCompatActivity implements MediaPlayerControl {
+    private static final String TAG = "MusicPlayerActivity";
 
     private boolean paused = false, playbackPaused = false;
     private MusicController controller;
@@ -60,7 +63,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
             }
         });
         controller.setMediaPlayer(this);
-        controller.setAnchorView(findViewById(R.id.song_listing_recyclerView));
+        controller.setAnchorView(findViewById(R.id.activity_music_player_recyclerView));
         controller.setEnabled(true);
     }
 
@@ -165,7 +168,6 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     }
 
     private ArrayList<Song> songList;
-//    private ListView songView;
     private RecyclerView songView;
 
 
@@ -188,7 +190,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
         database = new DBHelper(this);
         songList = new ArrayList<>();
-        getSongList();
+        SongExtractor.getSongList(this, database, songList);
         /*
             Added code
          */
@@ -200,7 +202,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         });
 
 
-        songView = (RecyclerView) findViewById(R.id.song_listing_recyclerView);
+        songView = (RecyclerView) findViewById(R.id.activity_music_player_recyclerView);
 
         // improves the performance
         songView.setHasFixedSize(true);
@@ -208,48 +210,8 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         songView.setLayoutManager(layoutManager);
 
-        RecyclerView.Adapter adapter = new SongAdapter(songList, new MyCallbackClass());
+        RecyclerView.Adapter adapter = new SongAdapter(songList, new MusicPlayerActivity.MyOnClickListener(), new MusicPlayerActivity.MyOnLongClickListener());
         songView.setAdapter(adapter);
-
-
-
-//        songView.setClickable(true);
-
-
-
-
-
-
-
-//        SongAdapter songAdt = new SongAdapter(this, songList);
-//        songView.setAdapter(songAdt);
-//        songView.setLongClickable(true);
-//        songView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-//                                           int pos, long id) {
-//                int index = pos;
-//                final long songId = songList.get(index).getId();
-//                //Creating the instance of PopupMenu
-//                PopupMenu popup = new PopupMenu(getApplicationContext(), arg1);
-//                //Inflating the Popup using xml file
-//                popup.getMenuInflater().inflate(R.menu.popup, popup.getMenu());
-//                popup.show();
-//                //registering popup with OnMenuItemClickListener
-//                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//                    public boolean onMenuItemClick(MenuItem item) {
-//                        String tag = item.getTitle().toString();
-//                        Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
-//                        database.updateData(songId, tag);
-//                        return true;
-//                    }
-//                });
-//                return true;
-//            }
-//        });
-
-
-
 
         setController();
     }
@@ -289,67 +251,67 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         return true;
     }
 
-    public void getSongList(){
-        //retrieve song info
-        ContentResolver musicResolver  = getContentResolver();
-        Uri musicUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        Cursor musicCursor = musicResolver.query(musicUri,null,null,null,null);
-
-        if(musicCursor!=null && musicCursor.moveToFirst()){
-            //get columns
-            int titleColumn = musicCursor.getColumnIndex
-                    (android.provider.MediaStore.Audio.Media.TITLE);
-            int idColumn = musicCursor.getColumnIndex
-                    (android.provider.MediaStore.Audio.Media._ID);
-            int artistColumn = musicCursor.getColumnIndex
-                    (MediaStore.Audio.Media.ARTIST);
-            int genreColumn = musicCursor.getColumnIndex(MediaStore.Audio.Genres.NAME);
-            //add songs to list
-            do {
-                long thisId = musicCursor.getLong(idColumn);
-                String thisTitle = musicCursor.getString(titleColumn);
-                String thisArtist = musicCursor.getString(artistColumn);
-                String thisGenre = null; //musicCursor.getString(genreColumn);
-                if(database.exists(thisId)) {
-                    Cursor cursor = database.getData(thisId);
-                    cursor.moveToFirst();
-                    songList.add(new Song(cursor.getLong(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ID)),
-                                          cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_NAME)),
-                                          cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ARTIST)),
-                                          cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_GENRE))));
-                    continue;
-                }
-                // get genre of the song
-                Uri genreUri = MediaStore.Audio.Genres.getContentUriForAudioId("external",(int)thisId);
-                Cursor genreCursor = musicResolver.query(genreUri,null,null,null,null);
-                if(genreCursor!=null && genreCursor.moveToFirst()){
-                    int genreColumnIndex = genreCursor.getColumnIndex(MediaStore.Audio.GenresColumns.NAME);
-                    do{
-                        String genre = genreCursor.getString(genreColumnIndex);
-                        if(thisGenre==null){
-                            thisGenre = genre;
-                        }else{
-                            thisGenre += ", " + genre;
-                        }
-                    }while(genreCursor.moveToNext());
-                }
-                songList.add(new Song(thisId, thisTitle, thisArtist, thisGenre));
-                String tag;
-                if(thisGenre==null) {
-                    tag = "Others";
-                }else if(thisGenre.equals("Jazz") || thisGenre.equals("Rock")){
-                    tag = "Happy";
-                }else if(thisGenre.equals("Blues")){
-                    tag = "Sad";
-                }else if(thisGenre.equals("Metal")){
-                    tag = "Angry";
-                }else{
-                    tag = "Surprise";
-                }
-                database.insertData(thisId,thisTitle,thisArtist,thisGenre,0,tag);
-            } while (musicCursor.moveToNext());
-        }
-    }
+//    public void getSongList(){
+//        //retrieve song info
+//        ContentResolver musicResolver  = getContentResolver();
+//        Uri musicUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+//        Cursor musicCursor = musicResolver.query(musicUri,null,null,null,null);
+//
+//        if(musicCursor!=null && musicCursor.moveToFirst()){
+//            //get columns
+//            int titleColumn = musicCursor.getColumnIndex
+//                    (android.provider.MediaStore.Audio.Media.TITLE);
+//            int idColumn = musicCursor.getColumnIndex
+//                    (android.provider.MediaStore.Audio.Media._ID);
+//            int artistColumn = musicCursor.getColumnIndex
+//                    (MediaStore.Audio.Media.ARTIST);
+//            int genreColumn = musicCursor.getColumnIndex(MediaStore.Audio.Genres.NAME);
+//            //add songs to list
+//            do {
+//                long thisId = musicCursor.getLong(idColumn);
+//                String thisTitle = musicCursor.getString(titleColumn);
+//                String thisArtist = musicCursor.getString(artistColumn);
+//                String thisGenre = null; //musicCursor.getString(genreColumn);
+//                if(database.exists(thisId)) {
+//                    Cursor cursor = database.getData(thisId);
+//                    cursor.moveToFirst();
+//                    songList.add(new Song(cursor.getLong(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ID)),
+//                                          cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_NAME)),
+//                                          cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ARTIST)),
+//                                          cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_GENRE))));
+//                    continue;
+//                }
+//                // get genre of the song
+//                Uri genreUri = MediaStore.Audio.Genres.getContentUriForAudioId("external",(int)thisId);
+//                Cursor genreCursor = musicResolver.query(genreUri,null,null,null,null);
+//                if(genreCursor!=null && genreCursor.moveToFirst()){
+//                    int genreColumnIndex = genreCursor.getColumnIndex(MediaStore.Audio.GenresColumns.NAME);
+//                    do{
+//                        String genre = genreCursor.getString(genreColumnIndex);
+//                        if(thisGenre==null){
+//                            thisGenre = genre;
+//                        }else{
+//                            thisGenre += ", " + genre;
+//                        }
+//                    }while(genreCursor.moveToNext());
+//                }
+//                songList.add(new Song(thisId, thisTitle, thisArtist, thisGenre));
+//                String tag;
+//                if(thisGenre==null) {
+//                    tag = "Others";
+//                }else if(thisGenre.equals("Jazz") || thisGenre.equals("Rock")){
+//                    tag = "Happy";
+//                }else if(thisGenre.equals("Blues")){
+//                    tag = "Sad";
+//                }else if(thisGenre.equals("Metal")){
+//                    tag = "Angry";
+//                }else{
+//                    tag = "Surprise";
+//                }
+//                database.insertData(thisId,thisTitle,thisArtist,thisGenre,0,tag);
+//            } while (musicCursor.moveToNext());
+//        }
+//    }
 
     public void songPicked(View view){
 //        musicSrv.setSong(Integer.parseInt(view.getTag().toString()));
@@ -423,9 +385,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
     // callable function that is called once any song item is clicked
     // it will be set in adapter's listener and called from there
-    public class MyCallbackClass implements Callable<Void> {
-
-        public int position;
+    public class MyOnClickListener extends CustomListeners.CustomOnClickListener {
 
         @Override
         public Void call() throws Exception {
@@ -438,7 +398,34 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         }
     }
 
+    public class MyOnLongClickListener extends CustomListeners.CustomOnLongClickListener {
 
+        @Override
+        public Void call() throws Exception {
+
+            Log.e(TAG, "MyOnLongClickListener callback called with position " + position);
+
+            int index = position;
+            final long songId = songList.get(index).getId();
+            //Creating the instance of PopupMenu
+
+            PopupMenu popup = new PopupMenu(getApplicationContext(), view);
+            //Inflating the Popup using xml file
+            popup.getMenuInflater().inflate(R.menu.popup, popup.getMenu());
+            popup.show();
+            //registering popup with OnMenuItemClickListener
+            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                public boolean onMenuItemClick(MenuItem item) {
+                    String tag = item.getTitle().toString();
+                    Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
+                    database.updateData(songId, tag);
+                    return true;
+                }
+            });
+
+            return null;
+        }
+    }
 
 
 }

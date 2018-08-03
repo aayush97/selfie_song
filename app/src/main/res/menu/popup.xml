@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.AppCompat">
     <item
         android:id="@+id/action_happy"
         android:orderInCategory="1"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:title="Happy"/>
 
     <item
         android:id="@+id/action_sad"
         android:orderInCategory="2"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:title="Sad"/>
 
     <item
         android:id="@+id/action_angry"
         android:orderInCategory="3"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:title="Angry"/>
 
     <item
-        android:id="@+id/action_romantic"
+        android:id="@+id/action_suprised"
         android:orderInCategory="4"
-        android:showAsAction="always"
-        android:title="Romantic"/>
+        app:showAsAction="always"
+        android:title="Surprised"/>
 
     <item
-        android:id="@+id/action_suprised"
+        android:id="@+id/action_neutral"
         android:orderInCategory="5"
-        android:showAsAction="always"
-        android:title="Surprised"/>
+        app:showAsAction="always"
+        android:title="Neutral"/>
 </menu>

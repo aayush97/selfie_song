@@ -30,29 +30,19 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="music_player.SongPlayingActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".VerificationActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="music_player.SongLabelingActivity"
             android:screenOrientation="portrait">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="music_player.UnlabeledMessageActivity"
             android:screenOrientation="portrait" />
-
-        <activity
-            android:name="music_player.SongListingActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-
 
 
         <!-- Music Player Related-->
@@ -60,10 +50,10 @@
             android:label="Music Player"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <service android:name="music_player.MusicService"/>
 

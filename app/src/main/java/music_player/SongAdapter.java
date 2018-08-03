@@ -21,7 +21,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
 
     private ArrayList<Song> songs;
 
-    private MusicPlayerActivity.MyCallbackClass myCallbackClass;
+    private CustomListeners.CustomOnClickListener mMyOnClickListener;
+    private CustomListeners.CustomOnLongClickListener mMyOnLongClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -37,9 +38,11 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         }
     }
 
-    public SongAdapter(ArrayList<Song> theSongs, MusicPlayerActivity.MyCallbackClass callbackClass) {
+    public SongAdapter(ArrayList<Song> theSongs, CustomListeners.CustomOnClickListener onClickListener,
+                       CustomListeners.CustomOnLongClickListener onLongClickListener) {
         songs = theSongs;
-        myCallbackClass = callbackClass;
+        mMyOnClickListener = onClickListener;
+        mMyOnLongClickListener = onLongClickListener;
     }
 
     @NonNull
@@ -62,9 +65,10 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 // Toast.makeText(v.getContext(), position + " title Name", Toast.LENGTH_SHORT).show();
-                myCallbackClass.position = position;
+                mMyOnClickListener.position = position;
+                mMyOnClickListener.view = v;
                 try {
-                    myCallbackClass.call();
+                    mMyOnClickListener.call();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -75,9 +79,10 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 // Toast.makeText(v.getContext(), position + " itemView ", Toast.LENGTH_SHORT).show();
-                myCallbackClass.position = position;
+                mMyOnClickListener.position = position;
+                mMyOnClickListener.view = v;
                 try {
-                    myCallbackClass.call();
+                    mMyOnClickListener.call();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -87,12 +92,61 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 // Toast.makeText(v.getContext(), position + " artist Name", Toast.LENGTH_SHORT).show();
-                myCallbackClass.position = position;
+                mMyOnClickListener.position = position;
+                mMyOnClickListener.view = v;
                 try {
-                    myCallbackClass.call();
+                    mMyOnClickListener.call();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        holder.songTitle.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                // Toast.makeText(view.getContext(), position + " songTitle long press", Toast.LENGTH_SHORT).show();
+                mMyOnLongClickListener.position = position;
+                mMyOnLongClickListener.view = view;
+                try {
+                    mMyOnLongClickListener.call();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return true;
+            }
+        });
+
+        holder.artistName.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                // Toast.makeText(view.getContext(), position + " songTitle long press", Toast.LENGTH_SHORT).show();
+                mMyOnLongClickListener.position = position;
+                mMyOnLongClickListener.view = view;
+                try {
+                    mMyOnLongClickListener.call();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return true;
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                // Toast.makeText(view.getContext(), position + " songTitle long press", Toast.LENGTH_SHORT).show();
+                mMyOnLongClickListener.position = position;
+                mMyOnLongClickListener.view = view;
+                try {
+                    mMyOnLongClickListener.call();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return true;
             }
         });
     }
@@ -102,56 +156,3 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         return songs.size();
     }
 }
-
-
-
-//
-//
-//
-//
-//public class SongAdapter extends BaseAdapter {
-//    private ArrayList<Song> songs;
-//    private LayoutInflater songInf;
-//
-//
-//    public SongAdapter(Context c, ArrayList<Song> theSongs){
-//        songs=theSongs;
-//        songInf=LayoutInflater.from(c);
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        // TODO Auto-generated method stub
-//        return songs.size();
-//    }
-//
-//    @Override
-//    public Object getItem(int arg0) {
-//        // TODO Auto-generated method stub
-//        return null;
-//    }
-//
-//    @Override
-//    public long getItemId(int arg0) {
-//        // TODO Auto-generated method stub
-//        return 0;
-//    }
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        //map to song layout
-//        LinearLayout songLay = (LinearLayout)songInf.inflate
-//                (R.layout.song, parent, false);
-//        //get title and artist views
-//        TextView songView = (TextView)songLay.findViewById(R.id.song_title);
-//        TextView artistView = (TextView)songLay.findViewById(R.id.song_artist);
-//        //get song using position
-//        Song currSong = songs.get(position);
-//        //get title and artist strings
-//        songView.setText(currSong.getTitle());
-//        artistView.setText(currSong.getGenre());
-//        //set position as tag
-//        songLay.setTag(position);
-//        return songLay;
-//    }
-//}
