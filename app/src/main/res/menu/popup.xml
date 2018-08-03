@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_happy"
+        android:orderInCategory="1"
+        android:showAsAction="always"
+        android:title="Happy"/>
+
+    <item
+        android:id="@+id/action_sad"
+        android:orderInCategory="2"
+        android:showAsAction="always"
+        android:title="Sad"/>
+
+    <item
+        android:id="@+id/action_angry"
+        android:orderInCategory="3"
+        android:showAsAction="always"
+        android:title="Angry"/>
+
+    <item
+        android:id="@+id/action_romantic"
+        android:orderInCategory="4"
+        android:showAsAction="always"
+        android:title="Romantic"/>
+
+    <item
+        android:id="@+id/action_suprised"
+        android:orderInCategory="5"
+        android:showAsAction="always"
+        android:title="Surprised"/>
+</menu>

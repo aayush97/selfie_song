@@ -1,4 +1,4 @@
-package com.bipinoli.selfie_song_minor;
+package com.bipinoli.selfie_song_minor.Test;
 
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.Drawable;
@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+
+import com.bipinoli.selfie_song_minor.R;
 
 public class InferencedActivity extends AppCompatActivity {
     private static final String TAG = "InferencedActivity";

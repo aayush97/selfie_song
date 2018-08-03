@@ -1,4 +1,4 @@
-package com.bipinoli.selfie_song_minor;
+package com.bipinoli.selfie_song_minor.Test;
 
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.bipinoli.selfie_song_minor.R;
 
 public class TestActivity extends AppCompatActivity {
 
