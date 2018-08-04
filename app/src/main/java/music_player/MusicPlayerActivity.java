@@ -6,24 +6,23 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.provider.MediaStore;
 import android.support.graphics.drawable.Animatable2Compat;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.concurrent.Callable;
 
-import android.net.Uri;
-import android.content.ContentResolver;
 import android.database.Cursor;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.MediaController.MediaPlayerControl;
@@ -38,10 +37,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bipinoli.selfie_song_minor.R;
-import com.bipinoli.selfie_song_minor.Test.InferencedActivity;
+
+import music_player.database.DBHelper;
+import music_player.music.MusicController;
+import music_player.music.MusicService;
+import music_player.music.Song;
+import music_player.music.SongAdapter;
+import music_player.music.SongExtractor;
 
 
-public class MusicPlayerActivity extends AppCompatActivity implements MediaPlayerControl {
+public class MusicPlayerActivity extends AppCompatActivity implements MediaPlayerControl{
     private static final String TAG = "MusicPlayerActivity";
 
     private boolean paused = false, playbackPaused = false;
@@ -238,13 +243,15 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
         final AnimatedVectorDrawableCompat avd_happy = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_romantic);
         final AnimatedVectorDrawableCompat avd_sad = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_gloomy);
-        final AnimatedVectorDrawableCompat avd_surprised = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_surprised);
+        final AnimatedVectorDrawableCompat avd_surprised = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_angry);
         final AnimatedVectorDrawableCompat avd_neutral = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_romantic);
         final AnimatedVectorDrawableCompat avd_angry = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_angry);
 
         final AnimatedVectorDrawableCompat avd;
 
         // -----------------------------------------------------------
+
+
 
         switch (predictionText) {
             case "happy":
@@ -296,7 +303,6 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         avd.start();
 
         // --------------------------------------------------
-
 
     }
 
@@ -467,6 +473,10 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     }
 
 
+
+
+
+
     // callable function that is called once any song item is clicked
     // it will be set in adapter's listener and called from there
     public class MyOnClickListener extends CustomListeners.CustomOnClickListener {
@@ -475,7 +485,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         public Void call() throws Exception {
             playSong(position);
 
-            Intent intent = new Intent(MusicPlayerActivity.this, InferencedActivity.class);
+            Intent intent = new Intent(MusicPlayerActivity.this, MusicVisualizationActivity.class);
             startActivity(intent);
 
             return null;

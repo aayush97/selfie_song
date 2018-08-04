@@ -27,7 +27,11 @@ import com.bipinoli.selfie_song_minor.R;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.concurrent.Callable;
+
+import music_player.database.DBHelper;
+import music_player.music.Song;
+import music_player.music.SongAdapter;
+import music_player.music.SongExtractor;
 
 
 public class SongLabelingActivity extends AppCompatActivity {
@@ -96,7 +100,7 @@ public class SongLabelingActivity extends AppCompatActivity {
             }
         });
 
-
+        final String predictionText = getIntent().getStringExtra("INFERENCE");
 
         // ------------- Animation -------------------------
         ImageView imageView = (ImageView)findViewById(R.id.song_labeling_imageView);
@@ -104,7 +108,7 @@ public class SongLabelingActivity extends AppCompatActivity {
 
         final AnimatedVectorDrawableCompat avd_happy = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_romantic);
         final AnimatedVectorDrawableCompat avd_sad = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_gloomy);
-        final AnimatedVectorDrawableCompat avd_surprised = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_surprised);
+        final AnimatedVectorDrawableCompat avd_surprised = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_angry);
         final AnimatedVectorDrawableCompat avd_neutral = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_romantic);
         final AnimatedVectorDrawableCompat avd_angry = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_angry);
 
@@ -112,7 +116,7 @@ public class SongLabelingActivity extends AppCompatActivity {
 
         // -----------------------------------------------------------
 
-        final String predictionText = getIntent().getStringExtra("INFERENCE");
+
 
         switch (predictionText) {
             case "happy":
