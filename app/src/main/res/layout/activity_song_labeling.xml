@@ -71,7 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Songs"
+                        android:text="Label songs"
                         android:textSize="36sp"
                         android:textColor="#fff"/>
                     <TextView
@@ -93,7 +93,6 @@
         android:id="@+id/song_labeling_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="36dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </android.support.v7.widget.RecyclerView>

@@ -5,6 +5,7 @@
     <string name="sad_text">Gloomy</string>
     <string name="surprised_text">Surprised</string>
     <string name="angry_text">Angry</string>
+    <string name="neutral_text">Neutral</string>
 
     <string name="long_press_msg">Long Press to label songs</string>
 

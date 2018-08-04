@@ -18,6 +18,12 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name=".Test.DisplayActivity"
@@ -35,10 +41,10 @@
         <activity
             android:name="music_player.SongLabelingActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name="music_player.UnlabeledMessageActivity"

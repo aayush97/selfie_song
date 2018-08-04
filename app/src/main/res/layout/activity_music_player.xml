@@ -93,7 +93,6 @@ tools:context="music_player.MusicPlayerActivity"
     android:id="@+id/activity_music_player_recyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="36dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 </android.support.v7.widget.RecyclerView>

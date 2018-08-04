@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@drawable/cross_btn"
+            app:srcCompat="@drawable/cross_btn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -71,7 +71,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:background="@drawable/tick_btn"
+            app:srcCompat="@drawable/tick_btn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

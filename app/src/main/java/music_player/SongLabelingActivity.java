@@ -83,10 +83,22 @@ public class SongLabelingActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e(TAG, "fab clicked");
+                Intent intent = new Intent(SongLabelingActivity.this, MusicPlayerActivity.class);
+                intent.putExtra("INFERENCE", getIntent().getStringExtra("INFERENCE"));
+                startActivity(intent);
             }
         });
     }
+
+
+
+
+
+
+
+
+
+    // ------------------------- Custom Listeners below -------------------------------
 
     public class MyOnClickListener extends CustomListeners.CustomOnClickListener {
 

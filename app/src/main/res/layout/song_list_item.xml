@@ -13,11 +13,12 @@
 
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="48dp">
+                    android:layout_height="0dp"
+                    android:padding="2dp"
+                    android:layout_weight="2">
 
                         <TextView
                             android:id="@+id/song_list_item_song_title"
-                            android:background="#Ff000000"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="start|center"
@@ -26,15 +27,21 @@
                             android:text="A very long long long lllllllllllll fkljaldkf jalkjdfa; ljfd;alkjdf lajdfl;kaj dfjal song name"
                             android:textAlignment="viewStart"
                             android:textColor="@color/colorTextColor"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:paddingLeft="36dp"
+                            />
 
                 </ScrollView>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#00ff00"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Artist name Here"
+                    android:textColor="@color/colorTextColor"
                     android:id="@+id/song_list_item_artist_name"
+
+                    android:paddingLeft="36dp"
                     />
 
 

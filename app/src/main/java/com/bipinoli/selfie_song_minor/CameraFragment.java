@@ -103,8 +103,12 @@ public class CameraFragment extends Fragment{
                             stream.flush();
                             stream.close();
 
-                            Intent intent = new Intent(getActivity(), DisplayActivity.class);
-                            intent.putExtra("IMAGE_PATH", file.getAbsolutePath());
+//                            Intent intent = new Intent(getActivity(), DisplayActivity.class);
+//                            intent.putExtra("IMAGE_PATH", file.getAbsolutePath());
+//                            intent.putExtra("INFERENCE", predictionText);
+//                            startActivity(intent);
+
+                            Intent intent = new Intent(getActivity(), VerificationActivity.class);
                             intent.putExtra("INFERENCE", predictionText);
                             startActivity(intent);
 

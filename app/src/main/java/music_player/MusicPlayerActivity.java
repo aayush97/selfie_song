@@ -214,6 +214,16 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         songView.setAdapter(adapter);
 
         setController();
+
+
+
+        // --------------------------------------------------------------------------------------
+
+        final String predictionText = getIntent().getStringExtra("INFERENCE");
+        Log.e(TAG, "predictionText: " + predictionText);
+
+
+
     }
 
     //connect to the service
