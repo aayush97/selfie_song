@@ -5,6 +5,8 @@
     <color name="colorPrimaryVeryLight">#33f08f8f</color>
     <color name="colorTextColor">#8B8B8B</color>
 
+    <color name="colorAnimationBackground">#685454</color>
+
     <!--<color name="colorPrimary">#3F51B5</color>-->
     <color name="colorPrimaryDark">#f08f8f</color>
     <color name="colorAccent">#f08f8f</color>
