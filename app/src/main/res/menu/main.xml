@@ -13,4 +13,11 @@
         android:showAsAction="ifRoom"
         android:title="End"/>
 
+    <item
+        android:id="@+id/action_loop"
+        android:icon="@drawable/end"
+        android:orderInCategory="2"
+        android:showAsAction="ifRoom"
+        android:title="Loop"/>
+
 </menu>

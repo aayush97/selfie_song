@@ -75,7 +75,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     private void playNext(){
         musicSrv.playNext();
         if(playbackPaused){
-            setController();
+            //setController();
             playbackPaused=false;
         }
         controller.show(0);
@@ -84,7 +84,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     private void playPrev(){
         musicSrv.playPrev();
         if(playbackPaused){
-            setController();
+            //setController();
             playbackPaused=false;
         }
         controller.show(0);
@@ -112,7 +112,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     protected void onResume(){
         super.onResume();
         if(paused){
-            setController();
+            //setController();
             paused=false;
         }
     }
@@ -381,6 +381,9 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
                 musicSrv=null;
                 System.exit(0);
                 break;
+            case R.id.action_loop:
+                musicSrv.setLoop();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -402,6 +405,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
             playSong(position);
 
             Intent intent = new Intent(MusicPlayerActivity.this, InferencedActivity.class);
+            intent.putExtra("SONG_TITLE",songList.get(position).getTitle());
             startActivity(intent);
 
             return null;

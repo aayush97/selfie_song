@@ -31,6 +31,7 @@ import com.bipinoli.selfie_song_minor.R;
 public class MusicService extends Service implements MediaPlayer.OnPreparedListener,
 MediaPlayer.OnErrorListener,MediaPlayer.OnCompletionListener{
 
+    private boolean loop=false;
     private boolean shuffle = false;
     private Random rand;
     private String songTitle;
@@ -41,6 +42,14 @@ MediaPlayer.OnErrorListener,MediaPlayer.OnCompletionListener{
     private boolean queued = false;
     private int songPosn;
     private final IBinder musicBind = new MusicBinder();
+
+    public void setLoop(){
+        shuffle=false;
+        if(loop)
+            loop=false;
+        else
+            loop=true;
+    }
 
     @Nullable
     @Override
@@ -229,7 +238,9 @@ MediaPlayer.OnErrorListener,MediaPlayer.OnCompletionListener{
             while(newSong==songPosn)
                 newSong = rand.nextInt(songs.size());
             songPosn = newSong;
-        }else {
+        }else if(loop){
+            //do nothing
+        }else{
             songPosn++;
             if (songPosn >= songs.size()) songPosn = 0;
         }

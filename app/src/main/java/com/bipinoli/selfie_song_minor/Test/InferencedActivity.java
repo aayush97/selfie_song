@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bipinoli.selfie_song_minor.R;
 
@@ -23,7 +24,10 @@ public class InferencedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inferenced);
-
+        Bundle extras = getIntent().getExtras();
+        String songTitle = extras.getString("SONG_TITLE");
+        TextView tv = (TextView) findViewById(R.id.songTitle);
+        tv.setText(songTitle);
         mImageView = (ImageView) findViewById(R.id.imageView_animaton);
         mImageViewMusic = (ImageView) findViewById(R.id.imageView_music_visualizer);
 
