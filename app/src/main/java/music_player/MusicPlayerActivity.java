@@ -75,7 +75,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     private void playNext(){
         musicSrv.playNext();
         if(playbackPaused){
-            //setController();
+            setController();
             playbackPaused=false;
         }
         controller.show(0);
@@ -84,7 +84,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     private void playPrev(){
         musicSrv.playPrev();
         if(playbackPaused){
-            //setController();
+            setController();
             playbackPaused=false;
         }
         controller.show(0);
@@ -112,7 +112,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     protected void onResume(){
         super.onResume();
         if(paused){
-            //setController();
+            setController();
             paused=false;
         }
     }
