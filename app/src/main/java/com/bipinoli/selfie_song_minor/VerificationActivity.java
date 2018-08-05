@@ -28,7 +28,7 @@ public class VerificationActivity extends AppCompatActivity {
         TextView mood_text = (TextView)findViewById(R.id.verification_mood);
 
         String prediction = getIntent().getStringExtra("INFERENCE");
-//        Log.e(TAG, predictionText);
+        Log.e(TAG, prediction);
 
         String[] predictArray = prediction.split("\n");
 //        for (int i=0; i<predictArray.length; i++)
@@ -43,7 +43,7 @@ public class VerificationActivity extends AppCompatActivity {
 
         final AnimatedVectorDrawableCompat avd_happy = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_romantic);
         final AnimatedVectorDrawableCompat avd_sad = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_gloomy);
-        final AnimatedVectorDrawableCompat avd_surprised = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_surprised);
+        final AnimatedVectorDrawableCompat avd_surprised = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_angry);
         final AnimatedVectorDrawableCompat avd_neutral = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_romantic);
         final AnimatedVectorDrawableCompat avd_angry = AnimatedVectorDrawableCompat.create(this, R.drawable.avd_anim_angry);
 

@@ -9,6 +9,7 @@ import android.os.Looper;
 import android.provider.MediaStore;
 import android.support.graphics.drawable.Animatable2Compat;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.ArrayList;
@@ -22,8 +23,10 @@ import android.database.Cursor;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.MediaController.MediaPlayerControl;
@@ -40,8 +43,15 @@ import android.widget.Toast;
 import com.bipinoli.selfie_song_minor.R;
 import com.bipinoli.selfie_song_minor.Test.InferencedActivity;
 
+import music_player.database.DBHelper;
+import music_player.music.MusicController;
+import music_player.music.MusicService;
+import music_player.music.Song;
+import music_player.music.SongAdapter;
+import music_player.music.SongExtractor;
 
-public class MusicPlayerActivity extends AppCompatActivity implements MediaPlayerControl {
+
+public class MusicPlayerActivity extends AppCompatActivity implements MediaPlayerControl{
     private static final String TAG = "MusicPlayerActivity";
 
     private boolean paused = false, playbackPaused = false;
@@ -197,7 +207,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
         database = new DBHelper(this);
         songList = new ArrayList<>();
-        SongExtractor.getSongList(this, database, songList,false);
+        SongExtractor.getSongList(this, database, songList);
         /*
             Added code
          */
@@ -226,7 +236,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
         // --------------------------------------------------------------------------------------
 
-        final String predictionText = getIntent().getExtras().getString("INFERENCE");
+        final String predictionText = getIntent().getStringExtra("INFERENCE");
         Log.e(TAG, "predictionText: " + predictionText);
 
 
@@ -327,7 +337,6 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
             bindService(playIntent, musicConnection, Context.BIND_AUTO_CREATE);
             startService(playIntent);
         }
-
     }
 
     @Override
