@@ -61,7 +61,12 @@ public class SongLabelingActivity extends AppCompatActivity {
 
         database = new DBHelper(this);
         songList = new ArrayList<>();
-        SongExtractor.getSongList(this, database, songList);
+        SongExtractor.getSongList(this, database, songList, true);
+        if(songList.size()==0){
+            Intent intent = new Intent(SongLabelingActivity.this, MusicPlayerActivity.class);
+            intent.putExtra("INFERENCE", getIntent().getStringExtra("INFERENCE"));
+            startActivity(intent);
+        }
         /*
             Added code
          */
@@ -190,6 +195,8 @@ public class SongLabelingActivity extends AppCompatActivity {
 
             int index = position;
             final long songId = songList.get(index).getId();
+            String songName = songList.get(index).getTitle();
+
             //Creating the instance of PopupMenu
 
             PopupMenu popup = new PopupMenu(getApplicationContext(), view);
@@ -201,7 +208,11 @@ public class SongLabelingActivity extends AppCompatActivity {
                 public boolean onMenuItemClick(MenuItem item) {
                     String tag = item.getTitle().toString();
                     Toast.makeText(getApplicationContext(), tag, Toast.LENGTH_SHORT).show();
-                    database.updateData(songId, tag);
+                    boolean updated  = database.updateData(songId, tag);
+                    if(updated)
+                        Toast.makeText(getApplicationContext(),"updated",Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(getApplicationContext(),"Not Updated",Toast.LENGTH_SHORT).show();
                     return true;
                 }
             });

@@ -6,29 +6,29 @@
         android:id="@+id/action_happy"
         android:orderInCategory="1"
         app:showAsAction="always"
-        android:title="Happy"/>
+        android:title="happy"/>
 
     <item
         android:id="@+id/action_sad"
         android:orderInCategory="2"
         app:showAsAction="always"
-        android:title="Sad"/>
+        android:title="sad"/>
 
     <item
         android:id="@+id/action_angry"
         android:orderInCategory="3"
         app:showAsAction="always"
-        android:title="Angry"/>
+        android:title="angry"/>
 
     <item
         android:id="@+id/action_suprised"
         android:orderInCategory="4"
         app:showAsAction="always"
-        android:title="Surprised"/>
+        android:title="surprised"/>
 
     <item
         android:id="@+id/action_neutral"
         android:orderInCategory="5"
         app:showAsAction="always"
-        android:title="Neutral"/>
+        android:title="neutral"/>
 </menu>

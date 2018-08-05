@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -41,8 +42,9 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(SONGS_COLUMN_ID, id);
         contentValues.put(SONGS_COLUMN_PLAYED, played);
         contentValues.put(SONGS_COLUMN_TAG, tag);
-        if(db.insert(SONGS_TABLE_NAME, null, contentValues)==-1)
+        if(db.insert(SONGS_TABLE_NAME, null, contentValues)==-1) {
             return false;
+        }
         return true;
     }
 
@@ -53,17 +55,24 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getData(Long id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from songs where id="+id+"", null );
-        return res;
+        try {
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor res = db.rawQuery("select * from songs where id=" + id + "", null);
+            return res;
+        }catch(Exception e){
+            Log.e("Database not opened",e.toString());
+            return null;
+        }
     }
 
     public boolean updateData (Long id, String tag) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(SONGS_COLUMN_TAG, tag);
-        if(db.update(SONGS_TABLE_NAME, contentValues, "id = ? ", new String[] { Long.toString(id) } )>0)
+        if(db.update(SONGS_TABLE_NAME, contentValues, "id = ? ", new String[] { Long.toString(id) } )>0) {
             return true;
+        }
+
         return false;
     }
 
@@ -79,11 +88,5 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return true;
     }
-    public boolean exists(long id){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from songs where id = " + id + "", null);
-        if(cursor!=null && cursor.moveToFirst())
-            return true;
-        return false;
-    }
+
 }

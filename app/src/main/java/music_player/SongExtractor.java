@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class SongExtractor {
 
-    public static void getSongList(Activity activity, DBHelper database, ArrayList<Song> songList){
+    public static void getSongList(Activity activity, DBHelper database, ArrayList<Song> songList, boolean unlabeled){
         //retrieve song info
         ContentResolver musicResolver  = activity.getContentResolver();
         Uri musicUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
@@ -31,13 +31,26 @@ public class SongExtractor {
                 String thisTitle = musicCursor.getString(titleColumn);
                 String thisArtist = musicCursor.getString(artistColumn);
                 String thisGenre = null; //musicCursor.getString(genreColumn);
-                if(database.exists(thisId)) {
-                    Cursor cursor = database.getData(thisId);
-                    cursor.moveToFirst();
-                    songList.add(new Song(cursor.getLong(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ID)),
-                            cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_NAME)),
-                            cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ARTIST)),
-                            cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_GENRE))));
+                Cursor cursor = database.getData(thisId);
+                if(cursor!=null && cursor.moveToFirst()) {
+                    if(!unlabeled) {
+                        songList.add(new Song(cursor.getLong(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ID)),
+                                cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_NAME)),
+                                cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ARTIST)),
+                                cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_GENRE))));
+                        cursor.close();
+                        continue;
+                    }else{
+                        if(cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_TAG)).equals("unlabeled")) {
+                            songList.add(new Song(cursor.getLong(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ID)),
+                                    cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_NAME)),
+                                    cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ARTIST)),
+                                    cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_GENRE))));
+                            cursor.close();
+                            continue;
+                        }
+                    }
+                    cursor.close();
                     continue;
                 }
                 // get genre of the song
@@ -54,18 +67,24 @@ public class SongExtractor {
                         }
                     }while(genreCursor.moveToNext());
                 }
-                songList.add(new Song(thisId, thisTitle, thisArtist, thisGenre));
+                if(!unlabeled) {
+                    songList.add(new Song(thisId, thisTitle, thisArtist, thisGenre));
+                }
                 String tag;
                 if(thisGenre==null) {
-                    tag = "Others";
+                    tag = "unlabeled";
+                    if(unlabeled)
+                        songList.add(new Song(thisId,thisTitle,thisArtist,thisGenre));
                 }else if(thisGenre.equals("Jazz") || thisGenre.equals("Rock")){
-                    tag = "Happy";
+                    tag = "happy";
                 }else if(thisGenre.equals("Blues")){
-                    tag = "Sad";
+                    tag = "sad";
                 }else if(thisGenre.equals("Metal")){
-                    tag = "Angry";
+                    tag = "angry";
+                }else if(thisGenre.equals("Country")){
+                    tag = "neutral";
                 }else{
-                    tag = "Surprise";
+                    tag = "surprised";
                 }
                 database.insertData(thisId,thisTitle,thisArtist,thisGenre,0,tag);
             } while (musicCursor.moveToNext());

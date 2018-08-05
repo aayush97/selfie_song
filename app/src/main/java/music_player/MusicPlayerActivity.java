@@ -49,8 +49,8 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     private MusicService musicSrv;
     private Intent playIntent = null;
     private boolean musicBound = false;
-    DBHelper database;
-
+    private  DBHelper database;
+    private String predictionText;
     // tutorial 2nd
     // part 2. Start the service
     // step 1
@@ -197,7 +197,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
         database = new DBHelper(this);
         songList = new ArrayList<>();
-        SongExtractor.getSongList(this, database, songList);
+        SongExtractor.getSongList(this, database, songList,false);
         /*
             Added code
          */
@@ -226,7 +226,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
         // --------------------------------------------------------------------------------------
 
-        final String predictionText = getIntent().getStringExtra("INFERENCE");
+        final String predictionText = getIntent().getExtras().getString("INFERENCE");
         Log.e(TAG, "predictionText: " + predictionText);
 
 
@@ -294,7 +294,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
             }
         });
         avd.start();
-
+        this.predictionText = predictionText;
         // --------------------------------------------------
 
 
@@ -308,8 +308,9 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
             //get service
             musicSrv = binder.getService();
             //pass list
-            musicSrv.setList(songList);
+            musicSrv.setList(songList,database);
             musicBound = true;
+            songRecommended(predictionText);
         }
 
         @Override
@@ -326,6 +327,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
             bindService(playIntent, musicConnection, Context.BIND_AUTO_CREATE);
             startService(playIntent);
         }
+
     }
 
     @Override
@@ -432,11 +434,18 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         if(cursor!=null && cursor.moveToFirst()){
             int idColumn = cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ID);
             ArrayList<Long> foundSongs = new ArrayList<>();
+            songList.clear();
             do{
                 long songId = cursor.getLong(idColumn);
                 foundSongs.add(songId);
+                songList.add(new Song(cursor.getLong(idColumn),
+                                        cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_NAME)),
+                                        cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_ARTIST)),
+                                        cursor.getString(cursor.getColumnIndex(DBHelper.SONGS_COLUMN_GENRE))));
             }while(cursor.moveToNext());
             musicSrv.queueSongs(foundSongs);
+            RecyclerView.Adapter adapter = new SongAdapter(songList, new MusicPlayerActivity.MyOnClickListener(), new MusicPlayerActivity.MyOnLongClickListener());
+            songView.setAdapter(adapter);
             Toast.makeText(this,foundSongs.size() + " songs queued",Toast.LENGTH_SHORT).show();
             controller.show(0);
         }else{
@@ -479,7 +488,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
             playSong(position);
 
             Intent intent = new Intent(MusicPlayerActivity.this, InferencedActivity.class);
-            intent.putExtra("SONG_TITLE",songList.get(position).getTitle());
+            intent.putExtra("PREDICTION",predictionText);
             startActivity(intent);
 
             return null;

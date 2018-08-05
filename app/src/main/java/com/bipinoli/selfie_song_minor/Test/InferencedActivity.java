@@ -25,9 +25,9 @@ public class InferencedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inferenced);
         Bundle extras = getIntent().getExtras();
-        String songTitle = extras.getString("SONG_TITLE");
-        TextView tv = (TextView) findViewById(R.id.songTitle);
-        tv.setText(songTitle);
+        String prediction = extras.getString("PREDICTION");
+        TextView tv = (TextView) findViewById(R.id.textView);
+        tv.setText("Feeling " + prediction);
         mImageView = (ImageView) findViewById(R.id.imageView_animaton);
         mImageViewMusic = (ImageView) findViewById(R.id.imageView_music_visualizer);
 

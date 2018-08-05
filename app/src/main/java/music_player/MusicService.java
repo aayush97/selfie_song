@@ -24,6 +24,7 @@ import java.util.Queue;
 import java.util.Random;
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bipinoli.selfie_song_minor.R;
@@ -41,6 +42,7 @@ MediaPlayer.OnErrorListener,MediaPlayer.OnCompletionListener{
     private Queue<Long> queuedSongs;
     private boolean queued = false;
     private int songPosn;
+    private DBHelper db;
     private final IBinder musicBind = new MusicBinder();
 
     public void setLoop(){
@@ -140,8 +142,9 @@ MediaPlayer.OnErrorListener,MediaPlayer.OnCompletionListener{
         player.setOnErrorListener(this);
     }
 
-    public void setList(ArrayList<Song> theSongs){
+    public void setList(ArrayList<Song> theSongs, DBHelper database){
         songs = theSongs;
+        db=database;
     }
 
     public class MusicBinder extends Binder {
@@ -178,7 +181,6 @@ MediaPlayer.OnErrorListener,MediaPlayer.OnCompletionListener{
     // for song recommended by classifier
     public void playSong(long id){
         player.reset();
-        DBHelper db = new DBHelper(getApplicationContext());
         db.updatePlayedTime(id);
         Uri trackUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
         try{
